@@ -10,7 +10,7 @@ const socket = io("http://localhost:4030");
 function App() {
 
   const verifyIdNumber = () => {
-    socket.emit('verify-user-in-queue', { idNumber: "V-25147888" } , (data) => {
+    socket.emit('verify-user-in-queue', { idNumber: "2514724", idType: 1 } , (data) => {
       console.log(data)
     })
   }
@@ -18,8 +18,9 @@ function App() {
   const generateTicket = () => {
     socket.emit('generate-ticket', 
     { 
-      idNumber: "V-25147875",
-      idPriority: 1,
+      idNumber: "25147875",
+      priorityId: 1,
+      idType: 1,
       isUnderage: false,
     }, 
     (data) => {
